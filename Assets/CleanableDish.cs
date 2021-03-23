@@ -64,7 +64,7 @@ public class CleanableDish : MonoBehaviour {
 	}
     }
 
-    private void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.tag == "Water")
         {
@@ -79,7 +79,7 @@ public class CleanableDish : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
 	//When felt on the floor
         if (collision.gameObject.tag == "Floor")
@@ -88,18 +88,19 @@ public class CleanableDish : MonoBehaviour {
         }
     }
 
-    public void ToBeClean()
+    void ToBeClean()
     {
         gameObject.GetComponent<MeshRenderer>().material = orignDish;
         cleanDishNum++;
         isClean = true;
     }
 
-    public void ToBeDirty()
+    void ToBeDirty()
     {
         gameObject.GetComponent<MeshRenderer>().material = dirtyDish;
         cleanDishNum--;
         nowWashNum = 0;
         isClean = false;
     }
+}
 }
